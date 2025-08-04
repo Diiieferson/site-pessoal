@@ -1,0 +1,370 @@
+import SchoolIcon from '@mui/icons-material/School';
+import WorkIcon from '@mui/icons-material/Work';
+import {
+    Box,
+    Card,
+    CardContent,
+    Chip,
+    Container,
+    Divider,
+    Grid,
+    Typography
+} from '@mui/material';
+import { motion } from 'framer-motion';
+import ParticlesBackground from './utilities/ParticlesBackground';
+
+const ExperienciaSimples = () => {
+    const experiences = [
+        {
+            id: 1,
+            type: 'work',
+            company: 'ETRO Construction - Vancouver, BC',
+            position: 'Software Developer',
+            period: '10/2023 - Atual',
+            description: 'Desenvolvo sistemas em Node.js, React.js e JavaScript/Google Apps Script para o departamento de RH, utilizando frameworks como MaterializeCSS e Material UI, e ferramentas de controle de versão (GitHub e Azure DevOps). Trabalho 100% remoto desenvolvendo SPAs com React.js, Web APIs e banco de dados Azure SQL.',
+            technologies: ['Node.js', 'React.js', 'JavaScript', 'Google Apps Script', 'MaterializeCSS', 'Material UI', 'Azure SQL', 'GitHub', 'Azure DevOps'],
+            achievements: [
+                'Desenvolvi sistemas completos para departamento de RH',
+                'Experiência desenvolvendo SPAs com React.js',
+                'Desenvolvi excelente comunicação em inglês',
+                'Trabalho 100% remoto com setup completo para desenvolvimento',
+                'Criei interfaces dinâmicas e otimizadas resolvendo desafios complexos de software'
+            ]
+        },
+        {
+            id: 2,
+            type: 'work',
+            company: 'Sheetgo - Joinville, SC',
+            position: 'Software Developer',
+            period: '02/2022 - 04/2023',
+            description: 'Suporte para área de Customer Success, fazendo a ponte entre CS e Tech Team. Desenvolvimento de sistema interno com JavaScript e Google Apps Script. Trabalho com ferramentas de consulta de dados como MongoDB, BigQuery e Parse, utilizando metodologia Scrum.',
+            technologies: ['JavaScript', 'Google Apps Script', 'MongoDB', 'BigQuery', 'Parse', 'MaterializeCSS', 'jQuery', 'GitHub', 'Bitbucket', 'Jira'],
+            achievements: [
+                'Ponte eficiente entre Customer Success e Tech Team',
+                'Desenvolvimento de sistema interno completo',
+                'Experiência com ferramentas de Big Data (MongoDB, BigQuery)',
+                'Trabalho com metodologia Scrum usando Jira',
+                'Uso de múltiplas ferramentas de versionamento (GitHub e Bitbucket)'
+            ]
+        },
+        {
+            id: 3,
+            type: 'work',
+            company: 'DBA Desenvolvimento - Joinville, SC',
+            position: 'Analista de Dados / Desenvolvedor VBA',
+            period: '11/2019 - 02/2022',
+            description: 'Responsável por desenvolvimento de automações nas áreas administrativas e de controladoria da empresa. Análise de dados, melhoria de processos, criação de relatórios para alta gestão e treinamentos de Excel e VBA. Desenvolvimento de automações que economizaram mais de 100 horas mensais.',
+            technologies: ['VBA', 'Excel', 'MySQL', 'Outlook Automation', 'ETL', 'XML', 'Power BI'],
+            achievements: [
+                'Mais de 100 horas mensais economizadas com automações',
+                'Automação de recebimento e resposta de e-mails com VBA',
+                'Projetos de extração de dados do Portal da Transparência (Joinville)',
+                'Sistema para controle financeiro com automação web',
+                'Diversos suplementos para Excel criados em VBA',
+                'Análise de arquivos XML com tratamento ETL',
+                'Treinamentos de Excel e VBA para equipes'
+            ]
+        },
+        {
+            id: 4,
+            type: 'work',
+            company: 'Lean Solutions - São Paulo, SP',
+            position: 'Instrutor de VBA para Negócios',
+            period: '01/2018 - 12/2018',
+            description: 'Instrutor de cursos de VBA Avançado em universidades renomadas como UFPR e UFSC, ministrando treinamentos especializados para profissionais e acadêmicos em automação e desenvolvimento VBA.',
+            technologies: ['VBA', 'Excel', 'Educação', 'Treinamento'],
+            achievements: [
+                'VBA Avançado na UFPR em 01/06/2018',
+                'VBA Avançado na UFPR em 28/07/2018',
+                'VBA Avançado na UFSC em 18/11/2018',
+                'Formação de profissionais em automação VBA'
+            ]
+        }
+    ];
+
+    const getIcon = (type) => {
+        switch (type) {
+            case 'work':
+                return <WorkIcon sx={{ fontSize: 30, color: '#00ff88' }} />;
+            case 'education':
+                return <SchoolIcon sx={{ fontSize: 30, color: '#61dafb' }} />;
+            default:
+                return <WorkIcon sx={{ fontSize: 30, color: '#00ff88' }} />;
+        }
+    };
+
+    const getCardColor = (type) => {
+        switch (type) {
+            case 'work':
+                return '#00ff88';
+            case 'education':
+                return '#61dafb';
+            default:
+                return '#00ff88';
+        }
+    };
+
+    return (
+        <Box sx={{ minHeight: '100vh', pt: 4, pb: 6 }}>
+            <ParticlesBackground />
+            <Container maxWidth="lg">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <Typography
+                        variant="h2"
+                        component="h1"
+                        gutterBottom
+                        sx={{
+                            color: '#ffffff',
+                            textAlign: 'center',
+                            mb: 2,
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        Experiência Profissional
+                    </Typography>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            color: '#cccccc',
+                            textAlign: 'center',
+                            mb: 6,
+                            maxWidth: '600px',
+                            mx: 'auto'
+                        }}
+                    >
+                        Minha trajetória profissional em desenvolvimento de software e automação
+                    </Typography>
+                </motion.div>
+
+                <Grid container spacing={4}>
+                    {/* Experience List */}
+                    <Grid item xs={12}>
+                        {experiences.map((exp, index) => (
+                            <motion.div
+                                key={exp.id}
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                            >
+                                <Card
+                                    sx={{
+                                        mb: 4,
+                                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                        backdropFilter: 'blur(10px)',
+                                        border: `2px solid ${getCardColor(exp.type)}`,
+                                        borderRadius: 2,
+                                        '&:hover': {
+                                            transform: 'translateY(-5px)',
+                                            transition: 'transform 0.3s ease',
+                                            boxShadow: `0 10px 30px ${getCardColor(exp.type)}40`
+                                        }
+                                    }}
+                                >
+                                    <CardContent sx={{ p: 4 }}>
+                                        <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
+                                            <Box
+                                                sx={{
+                                                    p: 2,
+                                                    borderRadius: '12px',
+                                                    backgroundColor: `${getCardColor(exp.type)}20`,
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    minWidth: 'fit-content'
+                                                }}
+                                            >
+                                                {getIcon(exp.type)}
+                                            </Box>
+
+                                            <Box sx={{ flexGrow: 1 }}>
+                                                <Typography
+                                                    variant="h5"
+                                                    sx={{
+                                                        color: getCardColor(exp.type),
+                                                        fontWeight: 'bold',
+                                                        mb: 1
+                                                    }}
+                                                >
+                                                    {exp.type === 'work' ? exp.position : exp.course}
+                                                </Typography>
+
+                                                <Typography
+                                                    variant="h6"
+                                                    sx={{ color: '#ffffff', mb: 1 }}
+                                                >
+                                                    {exp.type === 'work' ? exp.company : exp.institution}
+                                                </Typography>
+
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{
+                                                        color: getCardColor(exp.type),
+                                                        mb: 3,
+                                                        fontWeight: 'bold'
+                                                    }}
+                                                >
+                                                    {exp.period}
+                                                </Typography>
+
+                                                <Typography
+                                                    variant="body1"
+                                                    sx={{
+                                                        color: '#ffffff',
+                                                        mb: 3,
+                                                        lineHeight: 1.6
+                                                    }}
+                                                >
+                                                    {exp.description}
+                                                </Typography>
+
+                                                {exp.technologies && (
+                                                    <>
+                                                        <Typography
+                                                            variant="subtitle2"
+                                                            sx={{ color: '#cccccc', mb: 1 }}
+                                                        >
+                                                            Tecnologias:
+                                                        </Typography>
+                                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
+                                                            {exp.technologies.map((tech) => (
+                                                                <Chip
+                                                                    key={tech}
+                                                                    label={tech}
+                                                                    size="small"
+                                                                    sx={{
+                                                                        backgroundColor: `${getCardColor(exp.type)}20`,
+                                                                        color: '#ffffff',
+                                                                        border: `1px solid ${getCardColor(exp.type)}`,
+                                                                        fontWeight: 'bold'
+                                                                    }}
+                                                                />
+                                                            ))}
+                                                        </Box>
+                                                    </>
+                                                )}
+
+                                                {exp.achievements && (
+                                                    <>
+                                                        <Divider sx={{ my: 2, backgroundColor: 'rgba(255, 255, 255, 0.1)' }} />
+                                                        <Typography
+                                                            variant="subtitle2"
+                                                            sx={{ color: '#cccccc', mb: 2 }}
+                                                        >
+                                                            Principais Conquistas:
+                                                        </Typography>
+                                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                                            {exp.achievements.map((achievement, i) => (
+                                                                <Box
+                                                                    key={i}
+                                                                    sx={{
+                                                                        display: 'flex',
+                                                                        alignItems: 'flex-start',
+                                                                        p: 1.5,
+                                                                        backgroundColor: `${getCardColor(exp.type)}10`,
+                                                                        borderLeft: `3px solid ${getCardColor(exp.type)}`,
+                                                                        borderRadius: '0 8px 8px 0',
+                                                                        '&:hover': {
+                                                                            backgroundColor: `${getCardColor(exp.type)}20`,
+                                                                            transform: 'translateX(5px)',
+                                                                            transition: 'all 0.3s ease'
+                                                                        }
+                                                                    }}
+                                                                >
+                                                                    <Box
+                                                                        sx={{
+                                                                            width: 8,
+                                                                            height: 8,
+                                                                            borderRadius: '50%',
+                                                                            backgroundColor: getCardColor(exp.type),
+                                                                            mr: 2,
+                                                                            mt: 0.5,
+                                                                            flexShrink: 0
+                                                                        }}
+                                                                    />
+                                                                    <Typography
+                                                                        variant="body2"
+                                                                        sx={{
+                                                                            color: '#ffffff',
+                                                                            lineHeight: 1.5,
+                                                                            flex: 1
+                                                                        }}
+                                                                    >
+                                                                        {achievement}
+                                                                    </Typography>
+                                                                </Box>
+                                                            ))}
+                                                        </Box>
+                                                    </>
+                                                )}
+
+                                                {exp.projects && (
+                                                    <>
+                                                        <Divider sx={{ my: 2, backgroundColor: 'rgba(255, 255, 255, 0.1)' }} />
+                                                        <Typography
+                                                            variant="subtitle2"
+                                                            sx={{ color: '#cccccc', mb: 2 }}
+                                                        >
+                                                            Projetos Principais:
+                                                        </Typography>
+                                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                                            {exp.projects.map((project, i) => (
+                                                                <Box
+                                                                    key={i}
+                                                                    sx={{
+                                                                        display: 'flex',
+                                                                        alignItems: 'flex-start',
+                                                                        p: 1.5,
+                                                                        backgroundColor: `${getCardColor(exp.type)}10`,
+                                                                        borderLeft: `3px solid ${getCardColor(exp.type)}`,
+                                                                        borderRadius: '0 8px 8px 0',
+                                                                        '&:hover': {
+                                                                            backgroundColor: `${getCardColor(exp.type)}20`,
+                                                                            transform: 'translateX(5px)',
+                                                                            transition: 'all 0.3s ease'
+                                                                        }
+                                                                    }}
+                                                                >
+                                                                    <Box
+                                                                        sx={{
+                                                                            width: 8,
+                                                                            height: 8,
+                                                                            borderRadius: '50%',
+                                                                            backgroundColor: getCardColor(exp.type),
+                                                                            mr: 2,
+                                                                            mt: 0.5,
+                                                                            flexShrink: 0
+                                                                        }}
+                                                                    />
+                                                                    <Typography
+                                                                        variant="body2"
+                                                                        sx={{
+                                                                            color: '#ffffff',
+                                                                            lineHeight: 1.5,
+                                                                            flex: 1
+                                                                        }}
+                                                                    >
+                                                                        {project}
+                                                                    </Typography>
+                                                                </Box>
+                                                            ))}
+                                                        </Box>
+                                                    </>
+                                                )}
+                                            </Box>
+                                        </Box>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </Grid>
+                </Grid>
+            </Container>
+        </Box>
+    );
+};
+
+export default ExperienciaSimples;
