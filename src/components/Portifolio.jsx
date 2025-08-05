@@ -159,9 +159,9 @@ const Portifolio = () => {
                     </Box>
 
                     {/* Grid de Projetos */}
-                    <Grid container spacing={4}>
+                    <Grid container spacing={4} sx={{ flexGrow: 1, justifyContent: 'center' }}>
                         {projetosFiltrados.map((projeto, index) => (
-                            <Grid item xs={12} md={6} lg={4} key={projeto.id}>
+                            <Grid item xs={12} md={6} lg={4} key={projeto.id} sx={{ width: '80%' }}>
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -181,20 +181,6 @@ const Portifolio = () => {
                                             }
                                         }}
                                     >
-                                        <CardMedia
-                                            sx={{
-                                                height: 200,
-                                                backgroundColor: 'rgba(0, 255, 136, 0.1)',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center'
-                                            }}
-                                        >
-                                            <Typography variant="h6" sx={{ color: '#00ff88' }}>
-                                                {projeto.titulo}
-                                            </Typography>
-                                        </CardMedia>
-
                                         <CardContent sx={{ flexGrow: 1 }}>
                                             <Typography gutterBottom variant="h6" component="h3" sx={{ color: '#ffffff' }}>
                                                 {projeto.titulo}
@@ -240,13 +226,6 @@ const Portifolio = () => {
                                         </CardContent>
 
                                         <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
-                                            <IconButton
-                                                href={projeto.github}
-                                                target="_blank"
-                                                sx={{ color: '#ffffff' }}
-                                            >
-                                                <GitHubIcon />
-                                            </IconButton>
                                             <IconButton
                                                 href={projeto.demo}
                                                 target="_blank"

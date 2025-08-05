@@ -1,4 +1,4 @@
-import { Avatar, Box, Chip, Container, Grid, Paper, Typography } from '@mui/material';
+import { Stack, Box, Chip, Container, Divider, Grid, Paper, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import ParticlesBackground from './utilities/ParticlesBackground';
 
@@ -34,34 +34,22 @@ const Sobre = () => {
                     </Typography>
                 </motion.div>
 
-                <Grid container spacing={4} alignItems="center">
+                <Grid container spacing={4} alignItems="center" justifyContent='center'>
                     <Grid item xs={12} md={4}>
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            <Box sx={{ textAlign: 'center' }}>
-                                <Avatar
-                                    sx={{
-                                        width: 250,
-                                        height: 250,
-                                        mx: 'auto',
-                                        mb: 3,
-                                        border: '4px solid #00ff88',
-                                        fontSize: '3rem',
-                                        backgroundColor: 'rgba(0, 255, 136, 0.1)'
-                                    }}
-                                >
-                                    D
-                                </Avatar>
+                            <Stack justifyContent='center' textAlign='center'>
                                 <Typography variant="h4" sx={{ color: '#00ff88', fontWeight: 'bold' }}>
                                     Dieferson de Oliveira
                                 </Typography>
-                                <Typography variant="h6" sx={{ color: '#cccccc' }}>
-                                    Desenvolvedor Full Stack | Especialista em Automação
+                                <Divider sx={{ color: '#00ff88' }} />
+                                <Typography variant="h6" sx={{ color: '#cccccc', ml: 2 }}>
+                                    Desenvolvedor Full Stack | Node.js e React.js
                                 </Typography>
-                            </Box>
+                            </Stack >
                         </motion.div>
                     </Grid>
 

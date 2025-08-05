@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import Certificacoes from './components/Certificacoes';
 import Contato from './components/Contato';
-import ExperienciaSimples from './components/ExperienciaSimples';
+import Experiencias from './components/Experiencias';
 import Habilidades from './components/Habilidades';
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
@@ -79,7 +79,7 @@ function App() {
                         <Route path="/sobre" element={<Sobre />} />
                         <Route path="/habilidades" element={<Habilidades />} />
                         <Route path="/portifolio" element={<Portifolio />} />
-                        <Route path="/experiencia" element={<ExperienciaSimples />} />
+                        <Route path="/experiencia" element={<Experiencias />} />
                         <Route path="/certificacoes" element={<Certificacoes />} />
                         <Route path="/contato" element={<Contato />} />
                         {/* Rota legada para compatibilidade */}

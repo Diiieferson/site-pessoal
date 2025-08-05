@@ -67,18 +67,8 @@ const Habilidades = () => {
                 { name: 'Power BI', level: 80, icon: '📈' },
                 { name: 'ETL', level: 85, icon: '🔄' },
                 { name: 'Automação de Processos', level: 90, icon: '🤖' },
-                { name: 'Outlook Automation', level: 85, icon: '📧' }
             ]
         }
-    ];
-
-    const certifications = [
-        'Formação Full Stack - Gama Academy (2021)',
-        'Certificação Microsoft Expert Excel',
-        'VBA Avançado - Elaborata',
-        'Git e GitHub for Beginners - Udemy (2020)',
-        'Python 3 in the Web with Django - Udemy (2020)',
-        'Introdução a Bancos de Dados com MySQL - Udemy (2019)'
     ];
 
     return (
@@ -191,59 +181,7 @@ const Habilidades = () => {
                     ))}
                 </Grid>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1 }}
-                >
-                    <Box sx={{ mt: 6 }}>
-                        <Paper
-                            sx={{
-                                p: 4,
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                backdropFilter: 'blur(10px)',
-                                border: '1px solid rgba(0, 255, 136, 0.3)',
-                                borderRadius: 2,
-                                textAlign: 'center'
-                            }}
-                        >
-                            <Typography
-                                variant="h4"
-                                sx={{ color: '#00ff88', mb: 3, fontWeight: 'bold' }}
-                            >
-                                Cursos e Certificações
-                            </Typography>
-                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
-                                {certifications.map((cert, index) => (
-                                    <motion.div
-                                        key={cert}
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ duration: 0.3, delay: 1.2 + index * 0.1 }}
-                                    >
-                                        <Chip
-                                            label={cert}
-                                            size="large"
-                                            sx={{
-                                                backgroundColor: 'rgba(0, 255, 136, 0.2)',
-                                                color: '#ffffff',
-                                                border: '1px solid #00ff88',
-                                                px: 2,
-                                                py: 1,
-                                                fontSize: '0.9rem',
-                                                '&:hover': {
-                                                    backgroundColor: 'rgba(0, 255, 136, 0.3)',
-                                                    transform: 'scale(1.05)',
-                                                    transition: 'all 0.3s ease'
-                                                }
-                                            }}
-                                        />
-                                    </motion.div>
-                                ))}
-                            </Box>
-                        </Paper>
-                    </Box>
-                </motion.div>
+                
             </Container>
         </Box>
     );

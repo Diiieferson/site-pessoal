@@ -13,7 +13,7 @@ import {
 import { motion } from 'framer-motion';
 import ParticlesBackground from './utilities/ParticlesBackground';
 
-const ExperienciaSimples = () => {
+const Experiencias = () => {
     const experiences = [
         {
             id: 1,
@@ -262,8 +262,8 @@ const ExperienciaSimples = () => {
                                                                     key={i}
                                                                     sx={{
                                                                         display: 'flex',
-                                                                        alignItems: 'flex-start',
                                                                         p: 1.5,
+                                                                        pointerEvents: 'none',
                                                                         backgroundColor: `${getCardColor(exp.type)}10`,
                                                                         borderLeft: `3px solid ${getCardColor(exp.type)}`,
                                                                         borderRadius: '0 8px 8px 0',
@@ -274,17 +274,6 @@ const ExperienciaSimples = () => {
                                                                         }
                                                                     }}
                                                                 >
-                                                                    <Box
-                                                                        sx={{
-                                                                            width: 8,
-                                                                            height: 8,
-                                                                            borderRadius: '50%',
-                                                                            backgroundColor: getCardColor(exp.type),
-                                                                            mr: 2,
-                                                                            mt: 0.5,
-                                                                            flexShrink: 0
-                                                                        }}
-                                                                    />
                                                                     <Typography
                                                                         variant="body2"
                                                                         sx={{
@@ -367,4 +356,4 @@ const ExperienciaSimples = () => {
     );
 };
 
-export default ExperienciaSimples;
+export default Experiencias;

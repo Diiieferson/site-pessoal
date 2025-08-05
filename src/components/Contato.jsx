@@ -10,7 +10,8 @@ import {
     Container,
     Grid,
     IconButton,
-    Typography
+    Typography,
+    Stack
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -163,7 +164,7 @@ const Contato = () => {
                                             onClick={() => info.link && window.open(info.link)}
                                         >
                                             <CardContent sx={{ p: 3 }}>
-                                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                                                <Box sx={{ display: 'flex', alignItems: 'left', gap: 2 }}>
                                                     <Box
                                                         sx={{
                                                             p: 2,
@@ -177,7 +178,7 @@ const Contato = () => {
                                                     >
                                                         {info.icon}
                                                     </Box>
-                                                    <Box>
+                                                    <Box sx={{ textAlign: 'left' }} >
                                                         <Typography
                                                             variant="h6"
                                                             sx={{ color: '#ffffff', fontWeight: 'bold', mb: 1 }}
