@@ -13,7 +13,7 @@ import {
 import { motion } from 'framer-motion';
 import ParticlesBackground from './utilities/ParticlesBackground';
 
-const Experiencias = () => {
+const Experiences = () => {
     const experiences = [
         {
             id: 1,
@@ -356,4 +356,4 @@ const Experiencias = () => {
     );
 };
 
-export default Experiencias;
+export default Experiences;

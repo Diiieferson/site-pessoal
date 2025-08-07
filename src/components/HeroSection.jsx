@@ -82,8 +82,8 @@ export default function HeroSection() {
                                 stiffness: 120
                             }}
                         >
-                            <AnimatedButton href="/portifolio">
-                                Ver Portfólio
+                            <AnimatedButton href="/experience">
+                                Ver Experiências
                             </AnimatedButton>
                         </motion.div>
 
@@ -99,7 +99,7 @@ export default function HeroSection() {
                         >
                             <AnimatedButton
                                 variant="outlined"
-                                href="/contato"
+                                href="/contact"
                                 sx={{
                                     borderColor: '#00ff88',
                                     color: '#00ff88',
@@ -109,7 +109,7 @@ export default function HeroSection() {
                                     }
                                 }}
                             >
-                                Entre em Contato
+                                Entre em Contact
                             </AnimatedButton>
                         </motion.div>
                     </Box>

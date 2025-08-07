@@ -2,17 +2,15 @@ import {
     Box,
     Card,
     CardContent,
-    Chip,
     Container,
     Grid,
     LinearProgress,
-    Paper,
     Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import ParticlesBackground from './utilities/ParticlesBackground';
 
-const Habilidades = () => {
+const Skills = () => {
     const skillCategories = [
         {
             title: 'Frontend',
@@ -91,11 +89,11 @@ const Habilidades = () => {
                             fontWeight: 'bold'
                         }}
                     >
-                        Minhas Habilidades
+                        Minhas Skills
                     </Typography>
                 </motion.div>
 
-                <Grid container spacing={4}>
+                <Grid spacing={2} container>
                     {skillCategories.map((category, categoryIndex) => (
                         <Grid item xs={12} md={6} lg={4} key={category.title}>
                             <motion.div
@@ -130,7 +128,7 @@ const Habilidades = () => {
                                             {category.title}
                                         </Typography>
 
-                                        {category.skills.map((skill, skillIndex) => (
+                                        {category.skills.sort((a, b) => b.level - a.level).map((skill, skillIndex) => (
                                             <motion.div
                                                 key={skill.name}
                                                 initial={{ opacity: 0, x: -20 }}
@@ -153,7 +151,7 @@ const Habilidades = () => {
                                                         </Typography>
                                                         <Typography
                                                             variant="body2"
-                                                            sx={{ color: category.color, fontWeight: 'bold' }}
+                                                            sx={{ color: category.color, fontWeight: 'bold', ml: 2 }}
                                                         >
                                                             {skill.level}%
                                                         </Typography>
@@ -181,10 +179,10 @@ const Habilidades = () => {
                     ))}
                 </Grid>
 
-                
+
             </Container>
         </Box>
     );
 };
 
-export default Habilidades;
+export default Skills;

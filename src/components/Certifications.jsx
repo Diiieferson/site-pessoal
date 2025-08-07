@@ -12,7 +12,7 @@ import {
 import { motion } from 'framer-motion';
 import ParticlesBackground from './utilities/ParticlesBackground';
 
-const Certificacoes = () => {
+const Certifications = () => {
     const certifications = [
         {
             name: 'Formação Full Stack',
@@ -292,4 +292,4 @@ const Certificacoes = () => {
     );
 };
 
-export default Certificacoes;
+export default Certifications;

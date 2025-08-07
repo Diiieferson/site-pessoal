@@ -25,12 +25,12 @@ const Navbar = () => {
 
     const menuItems = [
         { text: 'Início', path: '/' },
-        { text: 'Sobre', path: '/sobre' },
-        { text: 'Habilidades', path: '/habilidades' },
-        { text: 'Portfólio', path: '/portifolio' },
-        { text: 'Experiência', path: '/experiencia' },
-        { text: 'Certificações', path: '/certificacoes' },
-        { text: 'Contato', path: '/contato' }
+        { text: 'Sobre', path: '/about' },
+        { text: 'Habilidades', path: '/skills' },
+        // { text: 'Portfólio', path: '/portifolio' },
+        { text: 'Experiência', path: '/experience' },
+        { text: 'Certificações', path: '/certifications' },
+        { text: 'Contato', path: '/contact' }
     ];
 
     const handleDrawerToggle = () => {

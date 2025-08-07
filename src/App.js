@@ -2,14 +2,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
-import Certificacoes from './components/Certificacoes';
-import Contato from './components/Contato';
-import Experiencias from './components/Experiencias';
-import Habilidades from './components/Habilidades';
+import About from './components/About';
+import Certifications from './components/Certifications';
+import Contact from './components/Contact';
+import Experience from './components/Experience';
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
 import Portifolio from './components/Portifolio';
-import Sobre from './components/Sobre';
+import Skills from './components/Skills';
 
 // Tema escuro personalizado
 const darkTheme = createTheme({
@@ -76,14 +76,14 @@ function App() {
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<HeroSection />} />
-                        <Route path="/sobre" element={<Sobre />} />
-                        <Route path="/habilidades" element={<Habilidades />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/skills" element={<Skills />} />
                         <Route path="/portifolio" element={<Portifolio />} />
-                        <Route path="/experiencia" element={<Experiencias />} />
-                        <Route path="/certificacoes" element={<Certificacoes />} />
-                        <Route path="/contato" element={<Contato />} />
+                        <Route path="/experience" element={<Experience />} />
+                        <Route path="/certifications" element={<Certifications />} />
+                        <Route path="/contact" element={<Contact />} />
                         {/* Rota legada para compatibilidade */}
-                        <Route path="/about" element={<Sobre />} />
+                        <Route path="/about" element={<About />} />
                     </Routes>
                 </Router>
             </div>

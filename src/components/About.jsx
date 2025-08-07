@@ -1,8 +1,8 @@
-import { Stack, Box, Chip, Container, Divider, Grid, Paper, Typography } from '@mui/material';
+import { Box, Chip, Container, Divider, Grid, Paper, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import ParticlesBackground from './utilities/ParticlesBackground';
 
-const Sobre = () => {
+const About = () => {
     const skills = [
         'JavaScript', 'Node.js', 'React.js', 'Google Apps Script', 'VBA', 'Python',
         'MaterializeCSS', 'Material UI', 'jQuery', 'MongoDB', 'BigQuery', 'MySQL',
@@ -168,4 +168,4 @@ const Sobre = () => {
     );
 };
 
-export default Sobre;
+export default About;

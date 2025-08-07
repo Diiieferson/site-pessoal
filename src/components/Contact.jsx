@@ -10,14 +10,13 @@ import {
     Container,
     Grid,
     IconButton,
-    Typography,
-    Stack
+    Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import ParticlesBackground from './utilities/ParticlesBackground';
 
-const Contato = () => {
+const Contact = () => {
     const [formData, setFormData] = useState({
         nome: '',
         email: '',
@@ -45,7 +44,7 @@ const Contato = () => {
         setOpenSnackbar(false);
     };
 
-    const contatoInfo = [
+    const contactInfo = [
         {
             icon: <EmailIcon />,
             titulo: 'Email',
@@ -110,7 +109,7 @@ const Contato = () => {
                             fontWeight: 'bold'
                         }}
                     >
-                        Entre em Contato
+                        Entre em Contact
                     </Typography>
                     <Typography
                         variant="h6"
@@ -137,10 +136,10 @@ const Contato = () => {
                                     variant="h4"
                                     sx={{ color: '#00ff88', mb: 4, fontWeight: 'bold', textAlign: 'center' }}
                                 >
-                                    Informações de Contato
+                                    Informações de Contact
                                 </Typography>
 
-                                {contatoInfo.map((info, index) => (
+                                {contactInfo.map((info, index) => (
                                     <motion.div
                                         key={info.titulo}
                                         initial={{ opacity: 0, y: 20 }}
@@ -248,4 +247,4 @@ const Contato = () => {
     );
 };
 
-export default Contato;
+export default Contact;
