@@ -109,7 +109,7 @@ export default function HeroSection() {
                                     }
                                 }}
                             >
-                                Entre em Contact
+                                Entre em Contato
                             </AnimatedButton>
                         </motion.div>
                     </Box>

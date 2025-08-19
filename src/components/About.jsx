@@ -81,9 +81,8 @@ const About = () => {
                                     }}
                                 >
                                     Nos últimos 3 anos, tenho focado esforços em desenvolver minhas habilidades
-                                    na área da tecnologia, trabalhando com linguagens como Node.js, React.js,
-                                    Google Apps Script, utilizando frameworks como MaterialUI e MaterializeCSS
-                                    para criar aplicações otimizadas.
+                                    na área de programação, trabalhando com linguagens como Node.js, React.js,
+                                    Google Apps Script, utilizando frameworks como MaterialUI e MaterializeCSS e todo o ecossistema JavaScript.
                                 </Typography>
                                 <Typography
                                     variant="body1"
@@ -96,9 +95,10 @@ const About = () => {
                                 >
                                     Anterior à área de tecnologia, tenho mais de 10 anos de experiência em
                                     ferramentas financeiras e analíticas, e mais de 5 anos em desenvolvimento VBA.
-                                    Atualmente trabalho como Software Developer na ETRO Construction no Canadá,
+                                    Atualmente trabalho como Software Developer na ETRO Construction uma construtora Canadense,
                                     desenvolvendo sistemas em Node.js, React.js e JavaScript/Google Apps Script.
-                                </Typography>                                <Typography variant="h6" sx={{ color: '#00ff88', mb: 2, fontWeight: 'bold' }}>
+                                </Typography>
+                                <Typography variant="h6" sx={{ color: '#00ff88', mb: 2, fontWeight: 'bold' }}>
                                     Principais Tecnologias
                                 </Typography>
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
@@ -155,10 +155,10 @@ const About = () => {
                                 }}
                             >
                                 Busco oportunidades em empresas que valorizem inovação e desenvolvimento de soluções
-                                escaláveis. Tenho interesse em expandir conhecimentos em arquiteturas de microsserviços
+                                escaláveis. Tenho interesse em expandir meus conhecimentos em arquiteturas de microsserviços
                                 e tecnologias cloud-native, contribuindo para projetos que tenham impacto real na
-                                experiência do usuário e eficiência dos processos. Meu objetivo é liderar projetos
-                                de transformação digital e implementação de automação inteligente.
+                                experiência do usuário e eficiência dos processos. Meu objetivo é aprender e contribuir para a equipe
+                                de forma significativa.
                             </Typography>
                         </Paper>
                     </Box>

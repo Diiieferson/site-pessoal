@@ -37,14 +37,17 @@ const Experiences = () => {
             company: 'Sheetgo - Joinville, SC',
             position: 'Software Developer',
             period: '02/2022 - 04/2023',
-            description: 'Suporte para área de Customer Success, fazendo a ponte entre CS e Tech Team. Desenvolvimento de sistema interno com JavaScript e Google Apps Script. Trabalho com ferramentas de consulta de dados como MongoDB, BigQuery e Parse, utilizando metodologia Scrum.',
+            description: 
+                `Suporte para área de Customer Success, fazendo a ponte entre CS e Tech Team. 
+                Desenvolvimento de sistema interno com JavaScript e Google Apps Script. 
+                Trabalho com ferramentas de consulta de dados como MongoDB, BigQuery e Parse, utilizando metodologia Scrum.`,
             technologies: ['JavaScript', 'Google Apps Script', 'MongoDB', 'BigQuery', 'Parse', 'MaterializeCSS', 'jQuery', 'GitHub', 'Bitbucket', 'Jira'],
             achievements: [
                 'Ponte eficiente entre Customer Success e Tech Team',
-                'Desenvolvimento de sistema interno completo',
+                'Desenvolvimento e manutenção de sistema interno',
                 'Experiência com ferramentas de Big Data (MongoDB, BigQuery)',
-                'Trabalho com metodologia Scrum usando Jira',
-                'Uso de múltiplas ferramentas de versionamento (GitHub e Bitbucket)'
+                'Trabalhei com metodologia Scrum usando Jira',
+                'Múltiplas ferramentas de versionamento (GitHub e Bitbucket)'
             ]
         },
         {
@@ -53,7 +56,7 @@ const Experiences = () => {
             company: 'DBA Desenvolvimento - Joinville, SC',
             position: 'Analista de Dados / Desenvolvedor VBA',
             period: '11/2019 - 02/2022',
-            description: 'Responsável por desenvolvimento de automações nas áreas administrativas e de controladoria da empresa. Análise de dados, melhoria de processos, criação de relatórios para alta gestão e treinamentos de Excel e VBA. Desenvolvimento de automações que economizaram mais de 100 horas mensais.',
+            description: 'Empresa própria. Responsável por desenvolvimento de automações nas áreas administrativas e de controladoria da empresa. Análise de dados, melhoria de processos, criação de relatórios para alta gestão e treinamentos de Excel e VBA. Desenvolvimento de automações que economizaram mais de 100 horas mensais.',
             technologies: ['VBA', 'Excel', 'MySQL', 'Outlook Automation', 'ETL', 'XML', 'Power BI'],
             achievements: [
                 'Mais de 100 horas mensais economizadas com automações',

@@ -1,4 +1,3 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 import {
     Box,
@@ -6,7 +5,6 @@ import {
     Card,
     CardActions,
     CardContent,
-    CardMedia,
     Chip,
     Container,
     Grid,

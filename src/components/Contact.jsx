@@ -2,7 +2,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import {
     Box,
     Card,
@@ -13,56 +13,29 @@ import {
     Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import ParticlesBackground from './utilities/ParticlesBackground';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        nome: '',
-        email: '',
-        assunto: '',
-        mensagem: ''
-    });
-    const [openSnackbar, setOpenSnackbar] = useState(false);
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Aqui você implementaria o envio do formulário
-        console.log('Formulário enviado:', formData);
-        setOpenSnackbar(true);
-        setFormData({ nome: '', email: '', assunto: '', mensagem: '' });
-    };
-
-    const handleCloseSnackbar = () => {
-        setOpenSnackbar(false);
-    };
 
     const contactInfo = [
         {
             icon: <EmailIcon />,
-            titulo: 'Email',
-            valor: 'diiieferson@gmail.com',
+            title: 'Email',
+            value: 'diiieferson@gmail.com',
             link: 'mailto:diiieferson@gmail.com',
             color: '#e74c3c'
         },
         {
-            icon: <PhoneIcon />,
-            titulo: 'Telefone',
-            valor: '(47) 9 8913-1560',
-            link: 'tel:+5547989131560',
+            icon: <WhatsAppIcon />,
+            title: 'Telefone',
+            value: '(47) 9 8913-1560',
+            link: 'https://wa.me/47989131560',
             color: '#2ecc71'
         },
         {
             icon: <LocationOnIcon />,
-            titulo: 'Localização',
-            valor: 'Joinville, SC - Brasil (Remoto)',
+            title: 'Localização',
+            value: 'Joinville, SC - Brasil (Remoto)',
             link: null,
             color: '#3498db'
         }
@@ -109,7 +82,7 @@ const Contact = () => {
                             fontWeight: 'bold'
                         }}
                     >
-                        Entre em Contact
+                        Entre em Contato
                     </Typography>
                     <Typography
                         variant="h6"
@@ -130,13 +103,13 @@ const Contact = () => {
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                sx={{ width: '100%', maxWidth: '500px' }}
+                                sx={{ width: '100%', maxWidth: '700px' }}
                             >
                                 <Typography
                                     variant="h4"
                                     sx={{ color: '#00ff88', mb: 4, fontWeight: 'bold', textAlign: 'center' }}
                                 >
-                                    Informações de Contact
+                                    Informações de Contato
                                 </Typography>
 
                                 {contactInfo.map((info, index) => (
@@ -154,41 +127,31 @@ const Contact = () => {
                                                 border: `1px solid ${info.color}`,
                                                 borderRadius: 2,
                                                 cursor: info.link ? 'pointer' : 'default',
-                                                '&:hover': info.link ? {
+                                                '&:hover': {
                                                     transform: 'translateX(10px)',
                                                     transition: 'transform 0.3s ease',
                                                     boxShadow: `0 5px 20px ${info.color}40`
-                                                } : {}
+                                                }
                                             }}
                                             onClick={() => info.link && window.open(info.link)}
                                         >
                                             <CardContent sx={{ p: 3 }}>
-                                                <Box sx={{ display: 'flex', alignItems: 'left', gap: 2 }}>
-                                                    <Box
-                                                        sx={{
-                                                            p: 2,
-                                                            borderRadius: '50%',
-                                                            backgroundColor: `${info.color}20`,
-                                                            color: info.color,
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center'
-                                                        }}
-                                                    >
-                                                        {info.icon}
-                                                    </Box>
+                                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+
+                                                    {info.icon}
+
                                                     <Box sx={{ textAlign: 'left' }} >
                                                         <Typography
                                                             variant="h6"
                                                             sx={{ color: '#ffffff', fontWeight: 'bold', mb: 1 }}
                                                         >
-                                                            {info.titulo}
+                                                            {info.title}
                                                         </Typography>
                                                         <Typography
                                                             variant="body1"
                                                             sx={{ color: '#cccccc' }}
                                                         >
-                                                            {info.valor}
+                                                            {info.value}
                                                         </Typography>
                                                     </Box>
                                                 </Box>
