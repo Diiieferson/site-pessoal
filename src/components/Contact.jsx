@@ -13,7 +13,6 @@ import {
     Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import ParticlesBackground from './utilities/ParticlesBackground';
 
 const Contact = () => {
 
@@ -63,8 +62,7 @@ const Contact = () => {
     ];
 
     return (
-        <Box sx={{ minHeight: '100vh', pt: 4, pb: 6 }}>
-            <ParticlesBackground />
+        <Box sx={{ minHeight: '100vh', py: 8, px: 2, backgroundColor: '#0f172a' }}>
             <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'center' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -73,25 +71,27 @@ const Contact = () => {
                 >
                     <Typography
                         variant="h2"
-                        component="h1"
+                        component="h2"
                         gutterBottom
                         sx={{
-                            color: '#ffffff',
+                            color: '#e2e8f0',
                             textAlign: 'center',
                             mb: 2,
-                            fontWeight: 'bold'
+                            fontWeight: 600,
+                            fontSize: { xs: '1.8rem', md: '2.2rem' }
                         }}
                     >
                         Entre em Contato
                     </Typography>
                     <Typography
-                        variant="h6"
+                        variant="body2"
                         sx={{
-                            color: '#cccccc',
+                            color: '#cbd5e1',
                             textAlign: 'center',
-                            mb: 6,
+                            mb: 8,
                             maxWidth: '600px',
-                            mx: 'auto'
+                            mx: 'auto',
+                            fontSize: '0.95rem'
                         }}
                     >
                         Vamos conversar sobre como posso contribuir para seu próximo projeto
@@ -114,7 +114,7 @@ const Contact = () => {
 
                                 {contactInfo.map((info, index) => (
                                     <motion.div
-                                        key={info.titulo}
+                                        key={info.title}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
@@ -122,6 +122,7 @@ const Contact = () => {
                                         <Card
                                             sx={{
                                                 mb: 3,
+                                                width: '100%',
                                                 backgroundColor: 'rgba(255, 255, 255, 0.05)',
                                                 backdropFilter: 'blur(10px)',
                                                 border: `1px solid ${info.color}`,
@@ -135,7 +136,7 @@ const Contact = () => {
                                             }}
                                             onClick={() => info.link && window.open(info.link)}
                                         >
-                                            <CardContent sx={{ p: 3 }}>
+                                            <CardContent sx={{ p: 3, minHeight: 80, display: 'flex', alignItems: 'center' }}>
                                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
 
                                                     {info.icon}

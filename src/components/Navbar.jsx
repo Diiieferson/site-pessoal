@@ -15,37 +15,41 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const location = useLocation();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const menuItems = [
-        { text: 'Início', path: '/' },
-        { text: 'Sobre', path: '/about' },
-        { text: 'Habilidades', path: '/skills' },
-        // { text: 'Portfólio', path: '/portifolio' },
-        { text: 'Experiência', path: '/experience' },
-        { text: 'Certificações', path: '/certifications' },
-        { text: 'Contato', path: '/contact' }
+        { text: 'Início', id: 'home' },
+        { text: 'Sobre', id: 'about' },
+        { text: 'Habilidades', id: 'skills' },
+        { text: 'Experiência', id: 'experience' },
+        { text: 'Portfólio', id: 'portifolio' },
+        { text: 'Certificações', id: 'certifications' },
+        { text: 'Contato', id: 'contact' }
     ];
+
+    const handleNavigate = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        setMobileOpen(false);
+    };
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
-    const isActive = (path) => location.pathname === path;
-
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', height: '100%', bgcolor: '#0a0a0a' }}>
+        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', height: '100%', bgcolor: '#0f172a' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
-                <Typography variant="h6" sx={{ color: '#00ff88' }}>
+                <Typography variant="h6" sx={{ color: '#8b5cf6' }}>
                     Dieferson
                 </Typography>
-                <IconButton onClick={handleDrawerToggle} sx={{ color: '#ffffff' }}>
+                <IconButton onClick={handleDrawerToggle} sx={{ color: '#e2e8f0' }}>
                     <CloseIcon />
                 </IconButton>
             </Box>
@@ -53,17 +57,17 @@ const Navbar = () => {
                 {menuItems.map((item) => (
                     <ListItem key={item.text} disablePadding>
                         <Button
-                            component={Link}
-                            to={item.path}
+                            onClick={() => handleNavigate(item.id)}
                             fullWidth
                             sx={{
-                                color: isActive(item.path) ? '#00ff88' : '#ffffff',
-                                py: 2,
-                                borderBottom: isActive(item.path) ? '2px solid #00ff88' : 'none',
+                                color: '#e2e8f0',
+                                py: 1.5,
+                                fontSize: '0.9rem',
+                                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                                 borderRadius: 0,
                                 '&:hover': {
-                                    color: '#00ff88',
-                                    backgroundColor: 'rgba(0, 255, 136, 0.1)'
+                                    color: '#8b5cf6',
+                                    backgroundColor: 'rgba(139, 92, 246, 0.05)'
                                 }
                             }}
                         >
@@ -80,32 +84,31 @@ const Navbar = () => {
             <AppBar
                 position="fixed"
                 sx={{
-                    backgroundColor: 'rgba(10, 10, 10, 0.95)',
+                    backgroundColor: 'rgba(15, 23, 42, 0.85)',
                     backdropFilter: 'blur(10px)',
-                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.3)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                    boxShadow: '0 2px 20px rgba(0, 0, 0, 0.4)',
+                    border: '1px solid rgba(139, 92, 246, 0.1)',
+                    zIndex: 1200
                 }}
             >
-                <Toolbar>
+                <Toolbar sx={{ py: 1 }}>
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <Typography
-                            variant="h6"
-                            component={Link}
-                            to="/"
+                        <Button
+                            onClick={() => handleNavigate('home')}
                             sx={{
-                                flexGrow: 1,
-                                color: '#00ff88',
+                                flexGrow: 0,
+                                color: '#8b5cf6',
                                 textDecoration: 'none',
-                                fontWeight: 'bold',
-                                fontSize: '1.5rem'
+                                fontWeight: 600,
+                                fontSize: '1.1rem'
                             }}
                         >
                             Dieferson
-                        </Typography>
+                        </Button>
                     </motion.div>
 
                     <Box sx={{ flexGrow: 1 }} />
@@ -116,43 +119,44 @@ const Navbar = () => {
                             aria-label="open drawer"
                             edge="start"
                             onClick={handleDrawerToggle}
-                            sx={{ color: '#ffffff' }}
+                            sx={{ color: '#e2e8f0' }}
                         >
                             <MenuIcon />
                         </IconButton>
                     ) : (
-                        <Box sx={{ display: 'flex', gap: 1 }}>
+                        <Box sx={{ display: 'flex', gap: 0.5 }}>
                             {menuItems.map((item, index) => (
                                 <motion.div
                                     key={item.text}
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    transition={{ duration: 0.5, delay: index * 0.06 }}
                                 >
                                     <Button
-                                        component={Link}
-                                        to={item.path}
+                                        onClick={() => handleNavigate(item.id)}
                                         sx={{
-                                            color: isActive(item.path) ? '#00ff88' : '#ffffff',
-                                            mx: 1,
+                                            color: '#cbd5e1',
+                                            px: 1.5,
+                                            fontSize: '0.85rem',
                                             position: 'relative',
+                                            transition: 'color 0.3s ease',
                                             '&:hover': {
-                                                color: '#00ff88',
-                                                backgroundColor: 'rgba(0, 255, 136, 0.1)'
+                                                color: '#8b5cf6',
+                                                backgroundColor: 'rgba(139, 92, 246, 0.05)'
                                             },
                                             '&::after': {
                                                 content: '""',
                                                 position: 'absolute',
-                                                bottom: 0,
+                                                bottom: 8,
                                                 left: '50%',
                                                 transform: 'translateX(-50%)',
-                                                width: isActive(item.path) ? '100%' : '0%',
+                                                width: '0%',
                                                 height: '2px',
-                                                backgroundColor: '#00ff88',
-                                                transition: 'width 0.3s ease'
+                                                backgroundColor: '#8b5cf6',
+                                                transition: 'width 0.3s ease',
                                             },
                                             '&:hover::after': {
-                                                width: '100%'
+                                                width: '80%'
                                             }
                                         }}
                                     >
@@ -166,28 +170,12 @@ const Navbar = () => {
             </AppBar>
 
             <Drawer
-                variant="temporary"
                 anchor="right"
                 open={mobileOpen}
                 onClose={handleDrawerToggle}
-                ModalProps={{
-                    keepMounted: true,
-                }}
-                sx={{
-                    display: { xs: 'block', md: 'none' },
-                    '& .MuiDrawer-paper': {
-                        boxSizing: 'border-box',
-                        width: 280,
-                        backgroundColor: '#0a0a0a',
-                        border: '1px solid rgba(255, 255, 255, 0.1)'
-                    },
-                }}
             >
                 {drawer}
             </Drawer>
-
-            {/* Spacer for fixed navbar */}
-            <Toolbar />
         </>
     );
 };

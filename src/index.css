@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -15,13 +19,7 @@ html, body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0a0a0a;
-}
-
-/* Controle específico para páginas de tela cheia */
-body.hero-page {
-  overflow: hidden;
-  height: 100vh;
+  background-color: #0f172a;
 }
 
 #root {

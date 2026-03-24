@@ -8,13 +8,12 @@ import {
     Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import ParticlesBackground from './utilities/ParticlesBackground';
 
 const Skills = () => {
     const skillCategories = [
         {
             title: 'Frontend',
-            color: '#61dafb',
+            color: '#06b6d4',
             skills: [
                 { name: 'JavaScript', level: 90, icon: '🟨' },
                 { name: 'React.js', level: 85, icon: '⚛️' },
@@ -26,7 +25,7 @@ const Skills = () => {
         },
         {
             title: 'Backend',
-            color: '#68a063',
+            color: '#8b5cf6',
             skills: [
                 { name: 'Node.js', level: 85, icon: '🟢' },
                 { name: 'Google Apps Script', level: 90, icon: '📊' },
@@ -37,7 +36,7 @@ const Skills = () => {
         },
         {
             title: 'Database',
-            color: '#f29111',
+            color: '#06b6d4',
             skills: [
                 { name: 'MongoDB', level: 80, icon: '🍃' },
                 { name: 'BigQuery', level: 75, icon: '📊' },
@@ -48,7 +47,7 @@ const Skills = () => {
         },
         {
             title: 'DevOps & Ferramentas',
-            color: '#0078d4',
+            color: '#8b5cf6',
             skills: [
                 { name: 'GitHub', level: 85, icon: '📝' },
                 { name: 'Azure DevOps', level: 80, icon: '☁️' },
@@ -59,7 +58,7 @@ const Skills = () => {
         },
         {
             title: 'Análise & Automação',
-            color: '#e535ab',
+            color: '#06b6d4',
             skills: [
                 { name: 'Excel Avançado', level: 95, icon: '📊' },
                 { name: 'Power BI', level: 80, icon: '📈' },
@@ -70,8 +69,7 @@ const Skills = () => {
     ];
 
     return (
-        <Box sx={{ minHeight: '100vh', pt: 4, pb: 6 }}>
-            <ParticlesBackground />
+        <Box sx={{ minHeight: '100vh', py: 8, px: 2, backgroundColor: '#0f172a' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -80,38 +78,40 @@ const Skills = () => {
                 >
                     <Typography
                         variant="h2"
-                        component="h1"
+                        component="h2"
                         gutterBottom
                         sx={{
-                            color: '#ffffff',
+                            color: '#e2e8f0',
                             textAlign: 'center',
-                            mb: 6,
-                            fontWeight: 'bold'
+                            mb: 8,
+                            fontWeight: 600,
+                            fontSize: { xs: '1.8rem', md: '2.2rem' }
                         }}
                     >
                         Minhas Skills
                     </Typography>
                 </motion.div>
 
-                <Grid spacing={2} container>
+                <Grid spacing={3} container>
                     {skillCategories.map((category, categoryIndex) => (
                         <Grid item xs={12} md={6} lg={4} key={category.title}>
                             <motion.div
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
+                                transition={{ duration: 0.8, delay: categoryIndex * 0.15 }}
                             >
                                 <Card
                                     sx={{
                                         height: '100%',
-                                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                        backgroundColor: 'rgba(139, 92, 246, 0.05)',
                                         backdropFilter: 'blur(10px)',
-                                        border: `2px solid ${category.color}`,
+                                        border: `1px solid ${category.color}40`,
                                         borderRadius: 2,
+                                        transition: 'all 0.3s ease',
                                         '&:hover': {
-                                            transform: 'translateY(-10px)',
-                                            transition: 'transform 0.3s ease',
-                                            boxShadow: `0 10px 30px ${category.color}40`
+                                            transform: 'translateY(-8px)',
+                                            boxShadow: `0 8px 24px ${category.color}25`,
+                                            borderColor: `${category.color}80`
                                         }
                                     }}
                                 >
@@ -120,9 +120,10 @@ const Skills = () => {
                                             variant="h5"
                                             sx={{
                                                 color: category.color,
-                                                fontWeight: 'bold',
+                                                fontWeight: 600,
                                                 mb: 3,
-                                                textAlign: 'center'
+                                                textAlign: 'center',
+                                                fontSize: '1.1rem'
                                             }}
                                         >
                                             {category.title}
@@ -135,23 +136,23 @@ const Skills = () => {
                                                 animate={{ opacity: 1, x: 0 }}
                                                 transition={{
                                                     duration: 0.5,
-                                                    delay: categoryIndex * 0.2 + skillIndex * 0.1
+                                                    delay: categoryIndex * 0.15 + skillIndex * 0.08
                                                 }}
                                             >
-                                                <Box sx={{ mb: 2 }}>
-                                                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                                                        <Typography sx={{ fontSize: '1.2rem', mr: 1 }}>
+                                                <Box sx={{ mb: 2.5 }}>
+                                                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.8 }}>
+                                                        <Typography sx={{ fontSize: '1rem', mr: 1 }}>
                                                             {skill.icon}
                                                         </Typography>
                                                         <Typography
-                                                            variant="body1"
-                                                            sx={{ color: '#ffffff', flexGrow: 1 }}
+                                                            variant="body2"
+                                                            sx={{ color: '#e2e8f0', flexGrow: 1, fontSize: '0.9rem' }}
                                                         >
                                                             {skill.name}
                                                         </Typography>
                                                         <Typography
                                                             variant="body2"
-                                                            sx={{ color: category.color, fontWeight: 'bold', ml: 2 }}
+                                                            sx={{ color: category.color, fontWeight: 600, ml: 2, fontSize: '0.85rem' }}
                                                         >
                                                             {skill.level}%
                                                         </Typography>
@@ -160,12 +161,12 @@ const Skills = () => {
                                                         variant="determinate"
                                                         value={skill.level}
                                                         sx={{
-                                                            height: 8,
-                                                            borderRadius: 4,
-                                                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                                            height: 6,
+                                                            borderRadius: 3,
+                                                            backgroundColor: 'rgba(139, 92, 246, 0.1)',
                                                             '& .MuiLinearProgress-bar': {
                                                                 backgroundColor: category.color,
-                                                                borderRadius: 4
+                                                                borderRadius: 3
                                                             }
                                                         }}
                                                     />
@@ -178,8 +179,6 @@ const Skills = () => {
                         </Grid>
                     ))}
                 </Grid>
-
-
             </Container>
         </Box>
     );

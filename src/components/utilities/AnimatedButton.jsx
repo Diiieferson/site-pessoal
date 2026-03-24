@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 /**
  * AnimatedButton - Botão animado com funcionalidade de arrastar
@@ -14,11 +13,14 @@ export default function AnimatedButton({
 }) {
     const constraintsRef = useRef(null);
     const [wasDragged, setWasDragged] = useState(false);
-    const navigate = useNavigate();
 
     const handleClick = () => {
         if (!wasDragged) {
-            navigate(href);
+            const sectionId = href.replace(/^\//, "");
+            const el = document.getElementById(sectionId);
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+            }
         }
         setWasDragged(false);
     };
@@ -30,7 +32,8 @@ export default function AnimatedButton({
         color: variant === "contained" ? "#000000" : "#00ff88",
         border: variant === "outlined" ? "2px solid #00ff88" : "none",
         padding: "12px 32px",
-        fontSize: "1.1rem",
+        fontSize: "0.85rem",
+        fontFamily: "'Playfair Display', serif",
         fontWeight: "bold",
         borderRadius: "10px",
         cursor: "pointer",
@@ -90,7 +93,6 @@ export default function AnimatedButton({
                 }}
                 whileDrag={{
                     scale: 1.15,
-                    rotate: [0, 3, -3, 0],
                     boxShadow: "0 20px 40px rgba(0, 255, 136, 0.6)",
                     transition: { type: "spring", stiffness: 200, damping: 15 }
                 }}

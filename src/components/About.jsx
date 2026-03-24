@@ -1,6 +1,5 @@
 import { Box, Chip, Container, Divider, Grid, Paper, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import ParticlesBackground from './utilities/ParticlesBackground';
 
 const About = () => {
     const skills = [
@@ -11,8 +10,7 @@ const About = () => {
     ];
 
     return (
-        <Box sx={{ minHeight: '100vh', pt: 4 }}>
-            <ParticlesBackground />
+        <Box sx={{ minHeight: '100vh', py: 8, px: 2, backgroundColor: '#0f172a' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -21,13 +19,14 @@ const About = () => {
                 >
                     <Typography
                         variant="h2"
-                        component="h1"
+                        component="h2"
                         gutterBottom
                         sx={{
-                            color: '#ffffff',
+                            color: '#e2e8f0',
                             textAlign: 'center',
-                            mb: 6,
-                            fontWeight: 'bold'
+                            mb: 8,
+                            fontWeight: 600,
+                            fontSize: { xs: '1.8rem', md: '2.2rem' }
                         }}
                     >
                         Sobre Mim
@@ -42,14 +41,28 @@ const About = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
                             <Stack justifyContent='center' textAlign='center'>
-                                <Typography variant="h4" sx={{ color: '#00ff88', fontWeight: 'bold' }}>
+                                <Typography 
+                                    variant="h4" 
+                                    sx={{ 
+                                        color: '#8b5cf6', 
+                                        fontWeight: 600,
+                                        fontSize: '1.3rem',
+                                        mb: 2
+                                    }}
+                                >
                                     Dieferson de Oliveira
                                 </Typography>
-                                <Divider sx={{ color: '#00ff88' }} />
-                                <Typography variant="h6" sx={{ color: '#cccccc', ml: 2 }}>
+                                <Divider sx={{ backgroundColor: 'rgba(139, 92, 246, 0.3)', mb: 2 }} />
+                                <Typography 
+                                    variant="body2" 
+                                    sx={{ 
+                                        color: '#cbd5e1',
+                                        fontSize: '0.9rem'
+                                    }}
+                                >
                                     Desenvolvedor Full Stack | Node.js e React.js
                                 </Typography>
-                            </Stack >
+                            </Stack>
                         </motion.div>
                     </Grid>
 
@@ -62,22 +75,30 @@ const About = () => {
                             <Paper
                                 sx={{
                                     p: 4,
-                                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                    backgroundColor: 'rgba(139, 92, 246, 0.05)',
                                     backdropFilter: 'blur(10px)',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                    border: '1px solid rgba(139, 92, 246, 0.15)',
                                     borderRadius: 2
                                 }}
                             >
-                                <Typography variant="h5" sx={{ color: '#00ff88', mb: 3, fontWeight: 'bold' }}>
+                                <Typography 
+                                    variant="h5" 
+                                    sx={{ 
+                                        color: '#8b5cf6', 
+                                        mb: 3, 
+                                        fontWeight: 600,
+                                        fontSize: '1.1rem'
+                                    }}
+                                >
                                     Minha História
                                 </Typography>
                                 <Typography
-                                    variant="body1"
+                                    variant="body2"
                                     sx={{
-                                        color: '#ffffff',
-                                        lineHeight: 1.8,
+                                        color: '#e2e8f0',
+                                        lineHeight: 1.7,
                                         mb: 3,
-                                        fontSize: '1.1rem'
+                                        fontSize: '0.9rem'
                                     }}
                                 >
                                     Nos últimos 3 anos, tenho focado esforços em desenvolver minhas habilidades
@@ -85,12 +106,12 @@ const About = () => {
                                     Google Apps Script, utilizando frameworks como MaterialUI e MaterializeCSS e todo o ecossistema JavaScript.
                                 </Typography>
                                 <Typography
-                                    variant="body1"
+                                    variant="body2"
                                     sx={{
-                                        color: '#ffffff',
-                                        lineHeight: 1.8,
+                                        color: '#e2e8f0',
+                                        lineHeight: 1.7,
                                         mb: 3,
-                                        fontSize: '1.1rem'
+                                        fontSize: '0.9rem'
                                     }}
                                 >
                                     Anterior à área de tecnologia, tenho mais de 10 anos de experiência em
@@ -98,7 +119,15 @@ const About = () => {
                                     Atualmente trabalho como Software Developer na ETRO Construction uma construtora Canadense,
                                     desenvolvendo sistemas em Node.js, React.js e JavaScript/Google Apps Script.
                                 </Typography>
-                                <Typography variant="h6" sx={{ color: '#00ff88', mb: 2, fontWeight: 'bold' }}>
+                                <Typography 
+                                    variant="body1" 
+                                    sx={{ 
+                                        color: '#8b5cf6', 
+                                        mb: 2, 
+                                        fontWeight: 600,
+                                        fontSize: '0.95rem'
+                                    }}
+                                >
                                     Principais Tecnologias
                                 </Typography>
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
@@ -107,16 +136,18 @@ const About = () => {
                                             key={skill}
                                             initial={{ opacity: 0, scale: 0.8 }}
                                             animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                                            transition={{ duration: 0.3, delay: 0.6 + index * 0.08 }}
                                         >
                                             <Chip
                                                 label={skill}
                                                 sx={{
-                                                    backgroundColor: 'rgba(0, 255, 136, 0.2)',
-                                                    color: '#ffffff',
-                                                    border: '1px solid #00ff88',
+                                                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                                                    color: '#e2e8f0',
+                                                    border: '1px solid rgba(139, 92, 246, 0.3)',
+                                                    fontSize: '0.8rem',
+                                                    height: 28,
                                                     '&:hover': {
-                                                        backgroundColor: 'rgba(0, 255, 136, 0.3)'
+                                                        backgroundColor: 'rgba(139, 92, 246, 0.25)'
                                                     }
                                                 }}
                                             />
@@ -133,25 +164,33 @@ const About = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    <Box sx={{ mt: 6, textAlign: 'center' }}>
+                    <Box sx={{ mt: 8, textAlign: 'center' }}>
                         <Paper
                             sx={{
                                 p: 4,
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                backgroundColor: 'rgba(6, 182, 212, 0.05)',
                                 backdropFilter: 'blur(10px)',
-                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                border: '1px solid rgba(6, 182, 212, 0.15)',
                                 borderRadius: 2
                             }}
                         >
-                            <Typography variant="h5" sx={{ color: '#00ff88', mb: 3, fontWeight: 'bold' }}>
+                            <Typography 
+                                variant="h5" 
+                                sx={{ 
+                                    color: '#06b6d4', 
+                                    mb: 3, 
+                                    fontWeight: 600,
+                                    fontSize: '1.1rem'
+                                }}
+                            >
                                 Objetivos Profissionais
                             </Typography>
                             <Typography
-                                variant="body1"
+                                variant="body2"
                                 sx={{
-                                    color: '#ffffff',
-                                    lineHeight: 1.8,
-                                    fontSize: '1.1rem'
+                                    color: '#cbd5e1',
+                                    lineHeight: 1.7,
+                                    fontSize: '0.9rem'
                                 }}
                             >
                                 Busco oportunidades em empresas que valorizem inovação e desenvolvimento de soluções

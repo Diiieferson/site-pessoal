@@ -11,7 +11,6 @@ import {
     Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import ParticlesBackground from './utilities/ParticlesBackground';
 
 const Experiences = () => {
     const experiences = [
@@ -88,28 +87,27 @@ const Experiences = () => {
     const getIcon = (type) => {
         switch (type) {
             case 'work':
-                return <WorkIcon sx={{ fontSize: 30, color: '#00ff88' }} />;
+                return <WorkIcon sx={{ fontSize: 30, color: '#8b5cf6' }} />;
             case 'education':
-                return <SchoolIcon sx={{ fontSize: 30, color: '#61dafb' }} />;
+                return <SchoolIcon sx={{ fontSize: 30, color: '#06b6d4' }} />;
             default:
-                return <WorkIcon sx={{ fontSize: 30, color: '#00ff88' }} />;
+                return <WorkIcon sx={{ fontSize: 30, color: '#8b5cf6' }} />;
         }
     };
 
     const getCardColor = (type) => {
         switch (type) {
             case 'work':
-                return '#00ff88';
+                return '#8b5cf6';
             case 'education':
-                return '#61dafb';
+                return '#06b6d4';
             default:
-                return '#00ff88';
+                return '#8b5cf6';
         }
     };
 
     return (
-        <Box sx={{ minHeight: '100vh', pt: 4, pb: 6 }}>
-            <ParticlesBackground />
+        <Box sx={{ minHeight: '100vh', py: 8, px: 2, backgroundColor: '#0f172a' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -118,32 +116,34 @@ const Experiences = () => {
                 >
                     <Typography
                         variant="h2"
-                        component="h1"
+                        component="h2"
                         gutterBottom
                         sx={{
-                            color: '#ffffff',
+                            color: '#e2e8f0',
                             textAlign: 'center',
                             mb: 2,
-                            fontWeight: 'bold'
+                            fontWeight: 600,
+                            fontSize: { xs: '1.8rem', md: '2.2rem' }
                         }}
                     >
                         Experiência Profissional
                     </Typography>
                     <Typography
-                        variant="h6"
+                        variant="body2"
                         sx={{
-                            color: '#cccccc',
+                            color: '#cbd5e1',
                             textAlign: 'center',
-                            mb: 6,
+                            mb: 8,
                             maxWidth: '600px',
-                            mx: 'auto'
+                            mx: 'auto',
+                            fontSize: '0.95rem'
                         }}
                     >
                         Minha trajetória profissional em desenvolvimento de software e automação
                     </Typography>
                 </motion.div>
 
-                <Grid container spacing={4}>
+                <Grid container spacing={3}>
                     {/* Experience List */}
                     <Grid item xs={12}>
                         {experiences.map((exp, index) => (
@@ -155,25 +155,26 @@ const Experiences = () => {
                             >
                                 <Card
                                     sx={{
-                                        mb: 4,
-                                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                        mb: 3,
+                                        backgroundColor: 'rgba(139, 92, 246, 0.05)',
                                         backdropFilter: 'blur(10px)',
-                                        border: `2px solid ${getCardColor(exp.type)}`,
+                                        border: `1px solid ${getCardColor(exp.type)}40`,
                                         borderRadius: 2,
+                                        transition: 'all 0.3s ease',
                                         '&:hover': {
-                                            transform: 'translateY(-5px)',
-                                            transition: 'transform 0.3s ease',
-                                            boxShadow: `0 10px 30px ${getCardColor(exp.type)}40`
+                                            transform: 'translateY(-4px)',
+                                            boxShadow: `0 8px 24px ${getCardColor(exp.type)}20`,
+                                            borderColor: `${getCardColor(exp.type)}80`
                                         }
                                     }}
                                 >
-                                    <CardContent sx={{ p: 4 }}>
-                                        <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
+                                    <CardContent sx={{ p: 3 }}>
+                                        <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2.5 }}>
                                             <Box
                                                 sx={{
-                                                    p: 2,
-                                                    borderRadius: '12px',
-                                                    backgroundColor: `${getCardColor(exp.type)}20`,
+                                                    p: 1.5,
+                                                    borderRadius: '10px',
+                                                    backgroundColor: `${getCardColor(exp.type)}15`,
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
@@ -188,16 +189,17 @@ const Experiences = () => {
                                                     variant="h5"
                                                     sx={{
                                                         color: getCardColor(exp.type),
-                                                        fontWeight: 'bold',
-                                                        mb: 1
+                                                        fontWeight: 600,
+                                                        mb: 0.5,
+                                                        fontSize: '1.1rem'
                                                     }}
                                                 >
                                                     {exp.type === 'work' ? exp.position : exp.course}
                                                 </Typography>
 
                                                 <Typography
-                                                    variant="h6"
-                                                    sx={{ color: '#ffffff', mb: 1 }}
+                                                    variant="body2"
+                                                    sx={{ color: '#e2e8f0', mb: 0.5, fontSize: '0.95rem' }}
                                                 >
                                                     {exp.type === 'work' ? exp.company : exp.institution}
                                                 </Typography>
@@ -206,19 +208,21 @@ const Experiences = () => {
                                                     variant="body2"
                                                     sx={{
                                                         color: getCardColor(exp.type),
-                                                        mb: 3,
-                                                        fontWeight: 'bold'
+                                                        mb: 2,
+                                                        fontWeight: 600,
+                                                        fontSize: '0.85rem'
                                                     }}
                                                 >
                                                     {exp.period}
                                                 </Typography>
 
                                                 <Typography
-                                                    variant="body1"
+                                                    variant="body2"
                                                     sx={{
-                                                        color: '#ffffff',
-                                                        mb: 3,
-                                                        lineHeight: 1.6
+                                                        color: '#cbd5e1',
+                                                        mb: 2.5,
+                                                        lineHeight: 1.6,
+                                                        fontSize: '0.9rem'
                                                     }}
                                                 >
                                                     {exp.description}
@@ -227,22 +231,24 @@ const Experiences = () => {
                                                 {exp.technologies && (
                                                     <>
                                                         <Typography
-                                                            variant="subtitle2"
-                                                            sx={{ color: '#cccccc', mb: 1 }}
+                                                            variant="caption"
+                                                            sx={{ color: '#8b5cf6', mb: 1, display: 'block', fontSize: '0.8rem', fontWeight: 600 }}
                                                         >
                                                             Tecnologias:
                                                         </Typography>
-                                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
+                                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.8, mb: 2 }}>
                                                             {exp.technologies.map((tech) => (
                                                                 <Chip
                                                                     key={tech}
                                                                     label={tech}
                                                                     size="small"
                                                                     sx={{
-                                                                        backgroundColor: `${getCardColor(exp.type)}20`,
-                                                                        color: '#ffffff',
-                                                                        border: `1px solid ${getCardColor(exp.type)}`,
-                                                                        fontWeight: 'bold'
+                                                                        backgroundColor: `${getCardColor(exp.type)}15`,
+                                                                        color: '#e2e8f0',
+                                                                        border: `1px solid ${getCardColor(exp.type)}30`,
+                                                                        fontWeight: 500,
+                                                                        fontSize: '0.75rem',
+                                                                        height: 24
                                                                     }}
                                                                 />
                                                             ))}

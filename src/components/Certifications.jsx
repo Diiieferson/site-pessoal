@@ -10,7 +10,6 @@ import {
     Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import ParticlesBackground from './utilities/ParticlesBackground';
 
 const Certifications = () => {
     const certifications = [
@@ -53,8 +52,7 @@ const Certifications = () => {
     ];
 
     return (
-        <Box sx={{ minHeight: '100vh', pt: 4, pb: 6 }}>
-            <ParticlesBackground />
+        <Box sx={{ minHeight: '100vh', py: 8, px: 2, backgroundColor: '#0f172a' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -63,42 +61,59 @@ const Certifications = () => {
                 >
                     <Typography
                         variant="h2"
-                        component="h1"
+                        component="h2"
                         gutterBottom
                         sx={{
-                            color: '#ffffff',
+                            color: '#e2e8f0',
                             textAlign: 'center',
                             mb: 2,
-                            fontWeight: 'bold'
+                            fontWeight: 600,
+                            fontSize: { xs: '1.8rem', md: '2.2rem' }
                         }}
                     >
                         Certificações
                     </Typography>
                     <Typography
-                        variant="h6"
+                        variant="body2"
                         sx={{
-                            color: '#cccccc',
+                            color: '#cbd5e1',
                             textAlign: 'center',
-                            mb: 6,
+                            mb: 8,
                             maxWidth: '600px',
-                            mx: 'auto'
+                            mx: 'auto',
+                            fontSize: '0.95rem'
                         }}
                     >
                         Minhas certificações e cursos de desenvolvimento profissional
                     </Typography>
                 </motion.div>
 
-                <Grid container spacing={4} justifyContent="center">
+                <Box
+                    sx={{
+                        display: 'grid',
+                        gap: 3,
+                        gridTemplateColumns: {
+                            xs: '1fr',
+                            sm: 'repeat(2, minmax(0, 1fr))',
+                            md: 'repeat(3, minmax(0, 1fr))'
+                        }
+                    }}
+                >
                     {certifications.map((cert, index) => (
-                        <Grid item xs={12} sm={6} md={4} key={cert.name}>
+                        <Box key={cert.name} sx={{ display: 'flex', minWidth: 0 }}>
                             <motion.div
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                                style={{ width: '100%', display: 'flex' }}
                             >
                                 <Card
                                     sx={{
                                         height: '100%',
+                                        minHeight: { xs: 340, md: 380 },
+                                        width: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'column',
                                         backgroundColor: 'rgba(255, 255, 255, 0.05)',
                                         backdropFilter: 'blur(10px)',
                                         border: '2px solid #00ff88',
@@ -111,7 +126,7 @@ const Certifications = () => {
                                         }
                                     }}
                                 >
-                                    <CardContent sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                    <CardContent sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                                         <Box
                                             sx={{
                                                 display: 'flex',
@@ -142,7 +157,11 @@ const Certifications = () => {
                                                 mb: 2,
                                                 textAlign: 'center',
                                                 lineHeight: 1.3,
-                                                flexGrow: 1
+                                                minHeight: 72,
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: 3,
+                                                WebkitBoxOrient: 'vertical',
+                                                overflow: 'hidden'
                                             }}
                                         >
                                             {cert.name}
@@ -154,13 +173,14 @@ const Certifications = () => {
                                                 color: '#00ff88',
                                                 mb: 2,
                                                 fontWeight: 'bold',
-                                                textAlign: 'center'
+                                                textAlign: 'center',
+                                                minHeight: 32
                                             }}
                                         >
                                             {cert.issuer}
                                         </Typography>
 
-                                        <Box sx={{ mt: 'auto' }}>
+                                        <Box sx={{ mt: 'auto', minHeight: 88, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                                             <Box sx={{
                                                 display: 'flex',
                                                 justifyContent: 'center',
@@ -187,7 +207,8 @@ const Certifications = () => {
                                                         fontSize: '0.8rem',
                                                         fontWeight: 'bold',
                                                         border: '1px solid #00ff88',
-                                                        maxWidth: '100%'
+                                                        maxWidth: '100%',
+                                                        width: '100%'
                                                     }}
                                                 />
                                             </Box>
@@ -195,9 +216,9 @@ const Certifications = () => {
                                     </CardContent>
                                 </Card>
                             </motion.div>
-                        </Grid>
+                        </Box>
                     ))}
-                </Grid>
+                </Box>
 
                 {/* Statistics Section */}
                 <motion.div

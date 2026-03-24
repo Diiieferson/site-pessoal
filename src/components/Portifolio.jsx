@@ -7,13 +7,11 @@ import {
     CardContent,
     Chip,
     Container,
-    Grid,
     IconButton,
     Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import ParticlesBackground from './utilities/ParticlesBackground';
 
 const Portifolio = () => {
     const [filtroAtivo, setFiltroAtivo] = useState('todos');
@@ -100,8 +98,7 @@ const Portifolio = () => {
         : projetos.filter(projeto => projeto.categoria === filtroAtivo);
 
     return (
-        <Box sx={{ minHeight: '100vh', pt: 4, pb: 6 }}>
-            <ParticlesBackground />
+        <Box sx={{ minHeight: '100vh', py: 8, px: 2, backgroundColor: '#0f172a' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -110,44 +107,48 @@ const Portifolio = () => {
                 >
                     <Typography
                         variant="h2"
-                        component="h1"
+                        component="h2"
                         gutterBottom
                         sx={{
-                            color: '#ffffff',
+                            color: '#e2e8f0',
                             textAlign: 'center',
-                            mb: 4,
-                            fontWeight: 'bold'
+                            mb: 2,
+                            fontWeight: 600,
+                            fontSize: { xs: '1.8rem', md: '2.2rem' }
                         }}
                     >
                         Meu Portfólio
                     </Typography>
 
                     <Typography
-                        variant="h6"
+                        variant="body2"
                         sx={{
-                            color: '#ffffff',
+                            color: '#cbd5e1',
                             textAlign: 'center',
-                            mb: 6,
-                            opacity: 0.8
+                            mb: 8,
+                            fontSize: '0.95rem'
                         }}
                     >
                         Projetos desenvolvidos ao longo da minha carreira profissional
                     </Typography>
 
                     {/* Filtros */}
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4, flexWrap: 'wrap', gap: 1 }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6, flexWrap: 'wrap', gap: 1 }}>
                         {categorias.map((categoria) => (
                             <Button
                                 key={categoria.id}
                                 variant={filtroAtivo === categoria.id ? "contained" : "outlined"}
                                 onClick={() => setFiltroAtivo(categoria.id)}
                                 sx={{
-                                    color: filtroAtivo === categoria.id ? '#000000' : '#ffffff',
-                                    borderColor: '#00ff88',
-                                    backgroundColor: filtroAtivo === categoria.id ? '#00ff88' : 'transparent',
+                                    color: filtroAtivo === categoria.id ? '#0f172a' : '#8b5cf6',
+                                    borderColor: '#8b5cf6',
+                                    backgroundColor: filtroAtivo === categoria.id ? '#8b5cf6' : 'transparent',
+                                    fontSize: '0.85rem',
+                                    py: 0.8,
+                                    px: 2,
                                     '&:hover': {
-                                        backgroundColor: filtroAtivo === categoria.id ? '#00cc6a' : 'rgba(0, 255, 136, 0.1)',
-                                        borderColor: '#00ff88'
+                                        backgroundColor: filtroAtivo === categoria.id ? '#a78bfa' : 'rgba(139, 92, 246, 0.1)',
+                                        borderColor: '#a78bfa'
                                     }
                                 }}
                             >
@@ -157,30 +158,46 @@ const Portifolio = () => {
                     </Box>
 
                     {/* Grid de Projetos */}
-                    <Grid container spacing={4} sx={{ flexGrow: 1, justifyContent: 'center' }}>
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            gap: 3,
+                            gridTemplateColumns: {
+                                xs: '1fr',
+                                md: 'repeat(2, minmax(0, 1fr))',
+                                lg: 'repeat(3, minmax(0, 1fr))'
+                            }
+                        }}
+                    >
                         {projetosFiltrados.map((projeto, index) => (
-                            <Grid item xs={12} md={6} lg={4} key={projeto.id} sx={{ width: '80%' }}>
+                            <Box key={projeto.id} sx={{ display: 'flex', minWidth: 0 }}>
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                                    style={{ width: '100%', display: 'flex' }}
                                 >
                                     <Card
                                         sx={{
                                             height: '100%',
-                                            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                            minHeight: { xs: 380, md: 430 },
+                                            width: '100%',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            backgroundColor: 'rgba(139, 92, 246, 0.05)',
                                             backdropFilter: 'blur(10px)',
-                                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                                            color: '#ffffff',
-                                            transition: 'transform 0.3s ease-in-out',
+                                            border: '1px solid rgba(139, 92, 246, 0.15)',
+                                            color: '#e2e8f0',
+                                            transition: 'all 0.3s ease-in-out',
                                             '&:hover': {
-                                                transform: 'translateY(-5px)',
-                                                border: '1px solid #00ff88'
+                                                transform: 'translateY(-4px)',
+                                                border: '1px solid rgba(139, 92, 246, 0.5)',
+                                                boxShadow: '0 8px 24px rgba(139, 92, 246, 0.2)'
                                             }
                                         }}
                                     >
-                                        <CardContent sx={{ flexGrow: 1 }}>
-                                            <Typography gutterBottom variant="h6" component="h3" sx={{ color: '#ffffff' }}>
+                                        <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                                            <Typography gutterBottom variant="h6" component="h3" sx={{ color: '#ffffff', minHeight: 64 }}>
                                                 {projeto.titulo}
                                             </Typography>
 
@@ -189,7 +206,12 @@ const Portifolio = () => {
                                                 sx={{
                                                     color: 'rgba(255, 255, 255, 0.8)',
                                                     mb: 2,
-                                                    lineHeight: 1.6
+                                                    lineHeight: 1.6,
+                                                    minHeight: 104,
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 4,
+                                                    WebkitBoxOrient: 'vertical',
+                                                    overflow: 'hidden'
                                                 }}
                                             >
                                                 {projeto.descricao}
@@ -207,7 +229,7 @@ const Portifolio = () => {
                                                 />
                                             </Box>
 
-                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, minHeight: 72, alignContent: 'flex-start', mt: 'auto' }}>
                                                 {projeto.tecnologias.map((tech, index) => (
                                                     <Chip
                                                         key={index}
@@ -223,7 +245,7 @@ const Portifolio = () => {
                                             </Box>
                                         </CardContent>
 
-                                        <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
+                                        <CardActions sx={{ justifyContent: 'space-between', p: 2, mt: 'auto' }}>
                                             <IconButton
                                                 href={projeto.demo}
                                                 target="_blank"
@@ -234,9 +256,9 @@ const Portifolio = () => {
                                         </CardActions>
                                     </Card>
                                 </motion.div>
-                            </Grid>
+                            </Box>
                         ))}
-                    </Grid>
+                    </Box>
                 </motion.div>
             </Container>
         </Box>
